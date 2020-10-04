@@ -1,7 +1,5 @@
 #include "Lista.h"
 
-#include "Lista.h"
-
 // Constructor copia
 Lista::Lista(const Lista& obj)
 {
