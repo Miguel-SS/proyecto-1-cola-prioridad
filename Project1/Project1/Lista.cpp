@@ -72,6 +72,8 @@ void Lista::borrarLista() { while (!isVacia()) { eliminarPrimero(); } }
 // Verifica si la lista está vacia
 bool Lista::isVacia() { return (inicio != nullptr) ? false : true; }
 
+Lista::Nodo* Lista::getInicio() { return inicio; }
+
 // Devuelve los datos en forma de cadena
 std::string Lista::toString()
 {

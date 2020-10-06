@@ -6,6 +6,7 @@ class Lista {
 private:
 	struct Nodo {
 		int value;
+		int index;
 		struct Nodo* next;
 		struct Nodo* prev;
 		Nodo(int v = 0, Nodo* p = nullptr, Nodo* n = nullptr)
@@ -25,6 +26,7 @@ public:
 	void eliminarPrimero();
 	void borrarLista();
 	bool isVacia();
+	Nodo* getInicio();
 	std::string toString();
 
 };

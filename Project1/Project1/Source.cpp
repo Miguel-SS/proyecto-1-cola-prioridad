@@ -1,7 +1,10 @@
 #include "Heap.h"
 
 int main() {
-	Heap h;
+	Lista list;
+	list.insertarFinal(1);
+	
+	std::cout << list.getInicio()->value << std::endl;
 
 	return 0;
 }

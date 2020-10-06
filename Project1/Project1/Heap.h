@@ -10,7 +10,7 @@ public:
 	~Heap();
 	void insertar(int);
 	void eliminar(int);
-	void heapify();
+	void heapify(int);
 	void crearHeap(Lista*);
 
 };
