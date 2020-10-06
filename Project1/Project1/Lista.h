@@ -3,7 +3,7 @@
 #include <sstream>
 
 class Lista {
-protected:
+private:
 	struct Nodo {
 		int value;
 		struct Nodo* next;

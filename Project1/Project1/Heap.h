@@ -4,10 +4,14 @@
 class Heap
 {
 private:
-	Lista list;
+	Lista *list;
 public:
 	Heap();
 	~Heap();
+	void insertar(int);
+	void eliminar(int);
+	void heapify();
+	void crearHeap(Lista*);
 
 };
 
