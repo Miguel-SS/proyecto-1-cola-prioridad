@@ -6,19 +6,19 @@ class Lista {
 private:
 	struct Nodo {
 		int value;
-		int index;
 		struct Nodo* next;
 		struct Nodo* prev;
 		Nodo(int v = 0, Nodo* p = nullptr, Nodo* n = nullptr)
 			: value{ v }, prev{ p }, next{ n } {}
 	};
 	Nodo* inicio;
+	int tam;
 
 public:
 	typedef Nodo* iterador;
 
 
-	Lista() { inicio = nullptr; }
+	Lista() { inicio = nullptr; tam = 0; }
 	Lista(const Lista&);
 	~Lista() { borrarLista(); }
 	void insertarFinal(int);
@@ -26,7 +26,10 @@ public:
 	void eliminarPrimero();
 	void borrarLista();
 	bool isVacia();
+	void intercambiaNodos(int, int);
+	Nodo* getNodo(int);
 	Nodo* getInicio();
+	int getTam();
 	std::string toString();
 
 };

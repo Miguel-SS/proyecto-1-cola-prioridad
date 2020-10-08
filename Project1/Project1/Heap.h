@@ -13,5 +13,9 @@ public:
 	void heapify(int);
 	void crearHeap(Lista*);
 
+	int getHijoDerecho(int);
+	int getHijoIzquierdo(int);
+	int getTam() { return list->getTam(); }
+	std::string toString() { return list->toString(); }
 };
 
