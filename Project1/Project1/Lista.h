@@ -22,7 +22,7 @@ public:
 	Lista(const Lista&);
 	~Lista() { borrarLista(); }
 	void insertarFinal(int);
-	void eliminar(int);
+	int eliminar(int);
 	void eliminarPrimero();
 	void borrarLista();
 	bool isVacia();

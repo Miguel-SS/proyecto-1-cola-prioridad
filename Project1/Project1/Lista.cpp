@@ -33,10 +33,11 @@ void Lista::insertarFinal(int n)
 }
 
 // Elimina un elemento n de la lista (cualquier posición)
-void Lista::eliminar(int n)
+int Lista::eliminar(int n)
 {
 	if (!isVacia()) {
-		if (inicio->value == n) eliminarPrimero();
+		int i = 0;
+		if (inicio->value == n) { eliminarPrimero(); return i; }
 		else {
 			iterador tmp = inicio;
 			while (tmp != nullptr) {
@@ -46,19 +47,21 @@ void Lista::eliminar(int n)
 						tmp->next->prev = tmp->prev;
 						delete tmp;
 						tam--;
-						return;
+						return i;
 					}
 				}
 				else {
 					tmp->prev->next = nullptr;
 					delete tmp;
 					tam--;
-					return;
+					return i;
 				}
 				tmp = tmp->next;
+				i++;
 			}
 		}
 	}
+	return -1;
 }
 
 void Lista::eliminarPrimero()
@@ -101,6 +104,7 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 				aux = nodo2->next;
 				nodo2->next = nodo1;
 				nodo1->next = aux;
+				if (aux) aux->prev = nodo1;
 				if(inicio == nodo1) inicio = nodo2;
 			}
 			else {
@@ -118,58 +122,6 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 			}
 		}
 	}
-
-
-	/**
-	if (pos1 <= tam && pos2 <= tam) {
-		if (pos1 != pos2) {
-			Nodo* nodo1;
-			Nodo* nodo2;
-			if (pos1 < pos2) {
-				nodo1 = getNodo(pos1);
-				nodo2 = getNodo(pos2)->prev;
-			}
-			else {
-				nodo1 = getNodo(pos2);
-				nodo2 = getNodo(pos1)->prev;
-			}
-
-			if (tam <= 2) {
-				nodo2 = nodo2->next;
-				nodo1->next = nullptr;
-				nodo2->prev = nullptr;
-				nodo1->prev = nodo2;
-				nodo2->next = nodo1;
-				inicio = nodo2;
-			}
-			else {
-				Nodo* aux;
-				if (nodo1->prev) {
-					nodo1 = nodo1->prev;
-					aux = nodo1->next;
-					nodo1->next = nodo2->next;
-					nodo2->next = aux;
-					nodo1->next->prev = nodo1;
-					nodo2->next->prev = nodo2;
-					aux = nodo2->next->next;
-					nodo2->next->next = nodo1->next->next;
-					nodo1->next->next = aux;
-				}
-				else {
-					aux = nodo1->next;
-					nodo1->next = nodo2->next->next;
-					if (nodo1->next) nodo1->next->prev = nodo1;
-					nodo2->next->next = aux;
-					aux->prev = nodo2->next;
-					nodo2->next->prev = nullptr;
-					nodo2->next = nodo1;
-					nodo1->prev = nodo2;
-					inicio = aux->prev;
-				}
-			}
-		}
-	}
-	/**/
 }
 
 Lista::Nodo* Lista::getNodo(int pos)

@@ -28,12 +28,13 @@ int main() {
 	h.insertar(100);
 	h.insertar(14);
 	h.insertar(7);
+	h.insertar(50);
 
 	std::cout << h.toString() << std::endl;
-	/**/
-	//h.heapify(0);
+	
+	h.eliminar(14);
 
-	//std::cout << h.toString() << std::endl;
+	std::cout << h.toString() << std::endl;
 
 
 	return 0;
