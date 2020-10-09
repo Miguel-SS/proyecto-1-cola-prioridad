@@ -12,7 +12,7 @@ Heap::~Heap()
 void Heap::insertar(int n)
 {
 	list->insertarFinal(n);
-    heapify(0);
+    heapify(list->getTam()-1);
 }
 
 void Heap::eliminar(int n)
@@ -22,26 +22,28 @@ void Heap::eliminar(int n)
 
 void Heap::heapify(int pos)
 {
-    
-    int max;
+    if (pos > 0) {
+        int max;
+        pos = pos / 2;
 
-    // Obtenemos los hijos izquierdo y derecho a partir de la posición dada
-    int izq = getHijoIzquierdo(pos);
-    int der = getHijoDerecho(pos);
+        // Obtenemos los hijos izquierdo y derecho a partir de la posición dada
+        int izq = getHijoIzquierdo(pos);
+        int der = getHijoDerecho(pos);
 
-    // Calculamos el elemento máximo para la posición
-    if (izq != -1 && list->getNodo(izq)->value > list->getNodo(pos)->value)
-        max = izq;
-    else
-        max = pos;
-    if (der != -1 && list->getNodo(der)->value > list->getNodo(max)->value)
-        max = der;
+        // Calculamos el elemento máximo para la posición
+        if (izq != -1 && list->getNodo(izq)->value > list->getNodo(pos)->value)
+            max = izq;
+        else
+            max = pos;
+        if (der != -1 && list->getNodo(der)->value > list->getNodo(max)->value)
+            max = der;
 
-    // Si el elemento mayor del heap es diferente al indicado
-    // en la posición, intercambiamos
-    if (max != pos) {
-        list->intercambiaNodos(pos, max);
-        heapify(max);
+        // Si el elemento mayor del heap es diferente al indicado
+        // en la posición, intercambiamos
+        if (max != pos) {
+            list->intercambiaNodos(pos, max);
+            heapify(max);
+        }
     }
 }
 

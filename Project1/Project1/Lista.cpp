@@ -79,6 +79,48 @@ bool Lista::isVacia() { return (inicio != nullptr) ? false : true; }
 
 void Lista::intercambiaNodos(int pos1, int pos2)
 {
+	if (pos1 < tam && pos2 < tam) {
+		if (pos1 != pos2) {
+			Nodo* nodo1;
+			Nodo* nodo2;
+			Nodo* aux = nullptr;
+			if (pos1 < pos2) {
+				nodo1 = getNodo(pos1);
+				nodo2 = getNodo(pos2);
+			}
+			else {
+				nodo1 = getNodo(pos2);
+				nodo2 = getNodo(pos1);
+			}
+
+			if (nodo1->next == nodo2) {
+				if (nodo1->prev) nodo1->prev->next = nodo2;
+				if (nodo2->prev) nodo2->prev->next = nodo1;
+				nodo2->prev = nodo1->prev;
+				nodo1->prev = nodo2;
+				aux = nodo2->next;
+				nodo2->next = nodo1;
+				nodo1->next = aux;
+				if(inicio == nodo1) inicio = nodo2;
+			}
+			else {
+				if (nodo1->prev)nodo1->prev->next = nodo2;
+				if (nodo2->prev)nodo2->prev->next = nodo1;
+				if (nodo1->next)nodo1->next->prev = nodo2;
+				if (nodo2->next)nodo2->next->prev = nodo1;
+				aux = nodo1->prev;
+				nodo1->prev = nodo2->prev;
+				nodo2->prev = aux;
+				aux = nodo1->next;
+				nodo1->next = nodo2->next;
+				nodo2->next = aux;
+				if (inicio == nodo1) inicio = nodo2;
+			}
+		}
+	}
+
+
+	/**
 	if (pos1 <= tam && pos2 <= tam) {
 		if (pos1 != pos2) {
 			Nodo* nodo1;
@@ -127,6 +169,7 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 			}
 		}
 	}
+	/**/
 }
 
 Lista::Nodo* Lista::getNodo(int pos)
