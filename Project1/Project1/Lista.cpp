@@ -104,7 +104,7 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 				aux = nodo2->next;
 				nodo2->next = nodo1;
 				nodo1->next = aux;
-				if (aux) aux->prev = nodo1;
+				if (aux) aux->prev = nodo1; // Esta línea no estaba, me dio muchos problemas y siento que podría pasar lo mismo abajo
 				if(inicio == nodo1) inicio = nodo2;
 			}
 			else {
@@ -117,7 +117,8 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 				nodo2->prev = aux;
 				aux = nodo1->next;
 				nodo1->next = nodo2->next;
-				nodo2->next = aux;
+				nodo2->next = aux; // ************************** AQUÍ ********************************
+				// Iría aquí pero por el momento no me ha dado problemas por lo que no lo agrego pero por si está pariendo con eso
 				if (inicio == nodo1) inicio = nodo2;
 			}
 		}

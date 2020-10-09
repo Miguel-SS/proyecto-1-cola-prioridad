@@ -18,8 +18,5 @@ public:
 	int getHijoIzquierdo(int);
 	int getTam() { return list->getTam(); }
 	std::string toString() { return list->toString(); }
-
-
-	void heapifyBubbleUpMax(int);
 };
 
