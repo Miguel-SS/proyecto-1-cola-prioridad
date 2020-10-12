@@ -10,6 +10,8 @@ private:
 		struct Nodo* prev;
 		Nodo(int v = 0, Nodo* p = nullptr, Nodo* n = nullptr)
 			: value{ v }, prev{ p }, next{ n } {}
+
+		
 	};
 	Nodo* inicio;
 	int tam;
@@ -30,6 +32,9 @@ public:
 	Nodo* getNodo(int);
 	Nodo* getInicio();
 	int getTam();
+
 	std::string toString();
+
+	//Lista* operator=(Lista*);
 
 };

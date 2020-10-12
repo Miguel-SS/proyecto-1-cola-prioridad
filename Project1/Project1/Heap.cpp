@@ -1,30 +1,29 @@
 #include "Heap.h"
 
-Heap::Heap()
-{
+Heap::Heap(){
 	list = new Lista();
 }
 
-Heap::~Heap()
-{
+Heap::Heap(Lista* heaplist){
+
+    list = heaplist;
 }
 
-void Heap::insertar(int n)
-{
+Heap::~Heap(){}
+
+void Heap::insertar(int n){
 	list->insertarFinal(n);
     heapify(list->getTam()-1);
     //heapifyBubbleUpMax(list->getTam()-1);
 }
 
-void Heap::eliminar(int n)
-{
+void Heap::eliminar(int n){
     int i = list->eliminar(n) * 2 + 1;
 	heapify(i);
     heapify(list->getTam()-1);
 }
 
-void Heap::heapify(int pos)
-{
+void Heap::heapify(int pos){
     int max;
         
 
@@ -52,10 +51,14 @@ void Heap::heapify(int pos)
     /**/
 }
 
-void Heap::crearHeap(Lista *heapiList)
-{
+void Heap::crearHeap(Lista *heapiList){
 	list = heapiList;
-	//heapify();
+	heapify(list->getTam()-1);
+}
+
+Lista* Heap::getLista()
+{
+    return list;
 }
 
 
@@ -66,8 +69,7 @@ int Heap::getHijoIzquierdo(int pos) {
     return izq;
 }
 
-int Heap::getPadre(int pos)
-{
+int Heap::getPadre(int pos){
     if (pos < 0 || pos >= list->getTam())
         return -1;
     return (pos - 1) / 2;

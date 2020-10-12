@@ -5,6 +5,8 @@ Lista::Lista(const Lista& obj)
 {
 	if (obj.inicio == nullptr) { inicio = nullptr; tam = 0; }
 	else {
+
+		// ????? se debe borrar algo?
 		inicio = new Nodo(obj.inicio->value);
 		iterador tmp = inicio;
 		iterador tmp_obj = obj.inicio->next;
@@ -160,3 +162,29 @@ std::string Lista::toString()
 	}
 	return s.str();
 }
+
+/*Lista* Lista::operator=(Lista* nuevo)
+{
+	
+	if (this != nuevo) {
+
+		borrarLista();
+
+		inicio = nuevo->inicio;
+
+		while (nuevo->inicio->next->next == NULL) {
+
+			inicio->prev = nuevo->inicio->prev;
+			inicio->next = nuevo->inicio->next;
+
+
+			inicio = inicio->next;
+			nuevo->inicio = nuevo->inicio->next;
+		}
+
+	}
+	return this;
+
+
+}*/
+

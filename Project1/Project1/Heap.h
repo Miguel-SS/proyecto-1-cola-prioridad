@@ -7,11 +7,14 @@ private:
 	Lista *list;
 public:
 	Heap();
+	Heap(Lista *);
 	~Heap();
 	void insertar(int);
 	void eliminar(int);
 	void heapify(int);
 	void crearHeap(Lista*);
+
+	Lista* getLista();
 
 	int getPadre(int);
 	int getHijoDerecho(int);
