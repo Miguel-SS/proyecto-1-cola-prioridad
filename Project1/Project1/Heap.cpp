@@ -4,6 +4,17 @@ Heap::Heap(){
 	list = new Lista();
 }
 
+Heap::Heap(Heap* nuevo){
+
+
+
+}
+
+Heap::Heap(Lista* l2){
+
+    crearHeap(l2);
+}
+
 Heap::~Heap(){}
 
 void Heap::insertar(int n){
@@ -61,6 +72,11 @@ void Heap::crearHeap(Lista *L2){
 int Heap::getMax()
 {
     return list->getNodo(0)->value;
+}
+
+Lista* Heap::getLista()
+{
+    return list;
 }
 
 int Heap::getHijoIzquierdo(int pos) {

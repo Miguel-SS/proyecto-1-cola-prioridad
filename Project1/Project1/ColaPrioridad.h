@@ -13,7 +13,7 @@ private:
 public:
 
 	ColaPrioridad();                   
-	ColaPrioridad(ColaPrioridad&);     
+	ColaPrioridad(ColaPrioridad*);     
 	ColaPrioridad(Lista*);            
 	void Agregar(int);
 	void ExtraerMax();

@@ -12,6 +12,8 @@ int main() {
 	list->insertarFinal(72);
 	list->insertarFinal(58);
 	list->insertarFinal(99);
+
+	std::cout << "Info Lista normal" << std::endl;
 	
 	std::cout << list->toString() << std::endl;
 
@@ -49,9 +51,20 @@ int main() {
 
 
 	
-	//ColaPrioridad* c = new ColaPrioridad(list);
+	ColaPrioridad* c = new ColaPrioridad(list);
 
-	//std::cout << c->toString() << std::endl;
+	std::cout <<"Info Cola C" << std::endl;
+
+	std::cout << c->toString() << std::endl;
+
+
+
+	ColaPrioridad* a = new ColaPrioridad(c);
+
+	std::cout << "Info Cola A" << std::endl;
+
+	std::cout << a->toString() << std::endl;
+
 
 
 

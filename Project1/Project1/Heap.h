@@ -7,6 +7,8 @@ private:
 	Lista *list;
 public:
 	Heap();
+	Heap(Heap*);
+	Heap(Lista*);
 	~Heap();
 	void insertar(int);
 	void eliminar(int);
@@ -14,6 +16,8 @@ public:
 	void crearHeap(Lista*);
 
 	int getMax();
+
+	Lista* getLista();
 
 	int getPadre(int);
 	int getHijoDerecho(int);

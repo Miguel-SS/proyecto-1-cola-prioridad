@@ -5,16 +5,23 @@ ColaPrioridad::ColaPrioridad(){
 	tam = cola->getTam();
 }
 
-ColaPrioridad::ColaPrioridad(ColaPrioridad& nueva){
+ColaPrioridad::ColaPrioridad(ColaPrioridad* nueva){
 
-	//cola = new Heap(nueva.cola->getLista());
+	cola = new Heap();
 
-	// utilizar constructor de copia de heap o lista
 
+	if (nueva->cola->getMax() != NULL) {
+
+		cola->crearHeap(nueva->cola->getLista());
+
+	}
+
+	tam = cola->getTam();
 }
 
 ColaPrioridad::ColaPrioridad(Lista* lista){
 
+	cola = new Heap();
 	cola->crearHeap(lista);
 	tam = cola->getTam();
 }
