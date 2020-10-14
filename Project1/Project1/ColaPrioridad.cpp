@@ -39,23 +39,10 @@ bool ColaPrioridad::Compara(int objA, int objB){
 
 int ColaPrioridad::getMax()
 {
-	if (tam > 0) {
-		return cola->getLista()->getInicio()->value;
+	if (cola->getTam() > 0) {
+		return cola->getMax();
 	}
-
 	return -1;
-}
-
-int ColaPrioridad::getPadre(int pos){
-	return cola->getPadre(pos);
-}
-
-int ColaPrioridad::getHijoDerecho(int pos){
-	return cola->getHijoDerecho(pos);
-}
-
-int ColaPrioridad::getHijoIzquierdo(int pos){
-	return cola->getHijoIzquierdo(pos);
 }
 
 int ColaPrioridad::getTam(){

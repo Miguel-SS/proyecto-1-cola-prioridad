@@ -14,7 +14,7 @@ public:
 	void heapify(int);
 	void crearHeap(Lista*);
 
-	Lista* getLista();
+	int getMax();
 
 	int getPadre(int);
 	int getHijoDerecho(int);

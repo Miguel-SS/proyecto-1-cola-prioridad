@@ -18,7 +18,7 @@ int main() {
 	list.intercambiaNodos(0, 7);
 
 	std::cout << list.toString() << std::endl;*/
-	/*
+	/**
 	Heap h;
 	h.insertar(2);
 	h.insertar(9);
@@ -30,13 +30,17 @@ int main() {
 	h.insertar(50);
 
 	std::cout << h.toString() << std::endl;
+	std::cout << h.getMax() << std::endl;
+
 	
-	h.eliminar(14);
+	h.eliminar(100);
 
-	std::cout << h.toString() << std::endl;*/
+	std::cout << h.toString() << std::endl;
+	std::cout << h.getMax() << std::endl;
+	/**/
 
 
-
+	/**/
 	ColaPrioridad* c = new ColaPrioridad();
 
 	c->Agregar(20);
@@ -56,6 +60,7 @@ int main() {
 	c->ExtraerMax();
 
 	std::cout << c->toString() << std::endl;
+	/**/
 
 	return 0;
 }

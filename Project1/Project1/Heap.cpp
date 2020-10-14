@@ -14,7 +14,6 @@ Heap::~Heap(){}
 void Heap::insertar(int n){
 	list->insertarFinal(n);
     heapify(list->getTam()-1);
-    //heapifyBubbleUpMax(list->getTam()-1);
 }
 
 void Heap::eliminar(int n){
@@ -56,11 +55,10 @@ void Heap::crearHeap(Lista *heapiList){
 	heapify(list->getTam()-1);
 }
 
-Lista* Heap::getLista()
+int Heap::getMax()
 {
-    return list;
+    return list->getNodo(0)->value;
 }
-
 
 int Heap::getHijoIzquierdo(int pos) {
     int izq = pos * 2 + 1;

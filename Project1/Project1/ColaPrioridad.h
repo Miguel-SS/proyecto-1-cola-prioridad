@@ -20,12 +20,9 @@ public:
 	bool Compara(int objA, int objB);
 
 	int getMax();
-	int getPadre(int);
-	int getHijoDerecho(int);
-	int getHijoIzquierdo(int);
 	int getTam();
 
-	std::string toString() { return cola->getLista()->toString(); }
+	std::string toString() { return cola->toString(); }
 
 
 };
