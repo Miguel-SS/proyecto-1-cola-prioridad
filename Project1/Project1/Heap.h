@@ -7,7 +7,6 @@ private:
 	Lista *list;
 public:
 	Heap();
-	Heap(Lista *);
 	~Heap();
 	void insertar(int);
 	void eliminar(int);

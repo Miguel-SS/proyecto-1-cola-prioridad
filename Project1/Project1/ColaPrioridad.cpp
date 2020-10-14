@@ -5,7 +5,7 @@ ColaPrioridad::ColaPrioridad(){
 	tam = cola->getTam();
 }
 
-ColaPrioridad::ColaPrioridad(ColaPrioridad& nueva) :cola( nullptr ), tam(nueva.tam) {
+ColaPrioridad::ColaPrioridad(ColaPrioridad& nueva){
 
 	//cola = new Heap(nueva.cola->getLista());
 
@@ -16,8 +16,7 @@ ColaPrioridad::ColaPrioridad(ColaPrioridad& nueva) :cola( nullptr ), tam(nueva.t
 ColaPrioridad::ColaPrioridad(Lista* lista){
 
 	cola->crearHeap(lista);
-	//cola->heapify();
-
+	tam = cola->getTam();
 }
 
 void ColaPrioridad::Agregar(int i){

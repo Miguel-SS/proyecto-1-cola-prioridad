@@ -4,11 +4,6 @@ Heap::Heap(){
 	list = new Lista();
 }
 
-Heap::Heap(Lista* heaplist){
-
-    list = heaplist;
-}
-
 Heap::~Heap(){}
 
 void Heap::insertar(int n){
@@ -50,9 +45,17 @@ void Heap::heapify(int pos){
     /**/
 }
 
-void Heap::crearHeap(Lista *heapiList){
-	list = heapiList;
-	heapify(list->getTam()-1);
+void Heap::crearHeap(Lista *L2){
+    if (list->getInicio() != NULL) {
+        list->borrarLista();
+    }
+    
+    int x = 0;
+    while (x < L2->getTam()) {
+        insertar(L2->getValores(x));
+        x++;
+    }
+
 }
 
 int Heap::getMax()

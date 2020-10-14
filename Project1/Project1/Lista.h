@@ -10,8 +10,6 @@ private:
 		struct Nodo* prev;
 		Nodo(int v = 0, Nodo* p = nullptr, Nodo* n = nullptr)
 			: value{ v }, prev{ p }, next{ n } {}
-
-		
 	};
 	Nodo* inicio;
 	int tam;
@@ -29,6 +27,9 @@ public:
 	void borrarLista();
 	bool isVacia();
 	void intercambiaNodos(int, int);
+
+	int getValores(int);
+
 	Nodo* getNodo(int);
 	Nodo* getInicio();
 	int getTam();

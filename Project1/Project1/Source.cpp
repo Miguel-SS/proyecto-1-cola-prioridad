@@ -2,7 +2,7 @@
 #include"ColaPrioridad.h"
 
 int main() {
-	/*
+	
 	Lista* list = new Lista();
 	list->insertarFinal(44);
 	list->insertarFinal(26);
@@ -13,13 +13,21 @@ int main() {
 	list->insertarFinal(58);
 	list->insertarFinal(99);
 	
-	/*std::cout << list.toString() << std::endl;
+	std::cout << list->toString() << std::endl;
 
-	list.intercambiaNodos(0, 7);
+	/*list.intercambiaNodos(0, 7);
 
 	std::cout << list.toString() << std::endl;*/
-	/**
+	/*
 	Heap h;
+	h.crearHeap(list);
+
+	std::cout << h.toString() << std::endl;
+
+	h.insertar(50);
+	std::cout << h.toString() << std::endl;
+	*/
+	/*
 	h.insertar(2);
 	h.insertar(9);
 	h.insertar(6);
@@ -40,9 +48,14 @@ int main() {
 	/**/
 
 
-	/**/
-	ColaPrioridad* c = new ColaPrioridad();
+	
+	//ColaPrioridad* c = new ColaPrioridad(list);
 
+	//std::cout << c->toString() << std::endl;
+
+
+
+/*
 	c->Agregar(20);
 	c->Agregar(3);
 	c->Agregar(89);
@@ -60,7 +73,7 @@ int main() {
 	c->ExtraerMax();
 
 	std::cout << c->toString() << std::endl;
-	/**/
+	*/
 
 	return 0;
 }

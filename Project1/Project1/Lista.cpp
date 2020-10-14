@@ -127,6 +127,14 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 	}
 }
 
+int Lista::getValores(int x)
+{
+	if (this->getInicio()->value == NULL) {
+		return NULL;
+	}
+	return this->getNodo(x)->value;
+}
+
 Lista::Nodo* Lista::getNodo(int pos)
 {
 	if (pos <= tam) {
