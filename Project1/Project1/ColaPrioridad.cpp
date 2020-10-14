@@ -27,7 +27,7 @@ void ColaPrioridad::Agregar(int i){
 
 void ColaPrioridad::ExtraerMax(){
 
-	cola->eliminar(getMax());
+	cola->eliminar(getPriority());
 	
 }
 
@@ -36,10 +36,10 @@ bool ColaPrioridad::Compara(int objA, int objB){
 	return(objA > objB) ? true : false;
 }
 
-int ColaPrioridad::getMax()
+int ColaPrioridad::getPriority()
 {
 	if (cola->getTam() > 0) {
-		return cola->getMax();
+		return cola->getPriority();
 	}
 	return -1;
 }

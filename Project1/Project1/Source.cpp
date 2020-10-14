@@ -1,8 +1,9 @@
 #include "Heap.h"
 #include"ColaPrioridad.h"
+#include "Persona.h"
 
 int main() {
-	
+	/**
 	Lista* list = new Lista();
 	list->insertarFinal(44);
 	list->insertarFinal(26);
@@ -15,10 +16,12 @@ int main() {
 	
 	std::cout << list->toString() << std::endl;
 
+	/**/
+
 	/*list.intercambiaNodos(0, 7);
 
 	std::cout << list.toString() << std::endl;*/
-	/*
+	/**
 	Heap h;
 	h.crearHeap(list);
 
@@ -74,6 +77,25 @@ int main() {
 
 	std::cout << c->toString() << std::endl;
 	*/
+
+	/**
+	Heap* h = new Heap(2);
+	h->insertar(44);
+	h->insertar(26);
+	h->insertar(73);
+	h->insertar(10);
+	h->insertar(21);
+	h->insertar(72);
+	h->insertar(58);
+	h->insertar(99);
+
+	std::cout << h->toString() << std::endl;
+
+	delete h;
+	/**/
+
+
+
 
 	return 0;
 }

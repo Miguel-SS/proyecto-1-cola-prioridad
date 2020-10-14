@@ -1,7 +1,8 @@
 #include "Heap.h"
 
-Heap::Heap(){
+Heap::Heap(int t){
 	list = new Lista();
+    tipo = t;
 }
 
 Heap::~Heap(){}
@@ -17,16 +18,19 @@ void Heap::eliminar(int n){
     heapify(list->getTam()-1);
 }
 
-void Heap::heapify(int pos){
+void Heap::heapify(int pos) {
+    (tipo == 0) ? heapiMax(pos) : heapiMin(pos);
+}
+
+void Heap::heapiMax(int pos)
+{
     int max;
-        
 
     // Obtenemos el padre y los hijos izquierdo y derecho a partir de la posición dada
     int padre = getPadre(pos);
     int izq = getHijoIzquierdo(padre);
     int der = getHijoDerecho(padre);
 
-    /**/
     // Calculamos el elemento máximo para la posición
     if (izq != -1 && list->getNodo(izq)->value > list->getNodo(padre)->value)
         max = izq;
@@ -41,8 +45,31 @@ void Heap::heapify(int pos){
         list->intercambiaNodos(padre, max);
         heapify(padre);
     }
+}
 
-    /**/
+void Heap::heapiMin(int pos)
+{
+    int min;
+
+    // Obtenemos el padre y los hijos izquierdo y derecho a partir de la posición dada
+    int padre = getPadre(pos);
+    int izq = getHijoIzquierdo(padre);
+    int der = getHijoDerecho(padre);
+
+    // Calculamos el elemento minimo para la posición
+    if (izq != -1 && list->getNodo(izq)->value < list->getNodo(padre)->value)
+        min = izq;
+    else
+        min = padre;
+    if (der != -1 && list->getNodo(der)->value < list->getNodo(min)->value)
+        min = der;
+
+    // Si el elemento menor del heap es diferente al indicado
+    // en la posición, intercambiamos
+    if (min != padre) {
+        list->intercambiaNodos(padre, min);
+        heapify(padre);
+    }
 }
 
 void Heap::crearHeap(Lista *L2){
@@ -58,7 +85,7 @@ void Heap::crearHeap(Lista *L2){
 
 }
 
-int Heap::getMax()
+int Heap::getPriority()
 {
     return list->getNodo(0)->value;
 }

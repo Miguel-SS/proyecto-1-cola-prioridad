@@ -19,7 +19,7 @@ public:
 	void ExtraerMax();
 	bool Compara(int objA, int objB);
 
-	int getMax();
+	int getPriority();
 	int getTam();
 
 	std::string toString() { return cola->toString(); }

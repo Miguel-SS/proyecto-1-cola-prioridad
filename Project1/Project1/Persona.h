@@ -10,17 +10,25 @@ private:
 
 	string nombre;
 	int id;
+	int edad;
 
 public:
 
-	Persona() { nombre = ""; id = 0; };
-	Persona(string n, int i);
+	Persona(string="INDEF", int=0, int=0);
 
 	string getNombre();
 	int getId();
-	void setNombre(string n);
-	void setId(int i);
+	int getEdad();
+	void setNombre(string);
+	void setId(int);
+	void setEdad(int);
+	string toString();
 
-	string tostring();
+	// Operadores
+	Persona& operator=(Persona*);
+	bool operator==(const Persona&);
+	bool operator<(const Persona&);
+	bool operator>(const Persona&);
+	friend ostream& operator<<(ostream&, Persona&);
 };
 

@@ -5,15 +5,18 @@ class Heap
 {
 private:
 	Lista *list;
+	 int tipo;
 public:
-	Heap();
+	Heap(int=0);
 	~Heap();
 	void insertar(int);
 	void eliminar(int);
 	void heapify(int);
+	void heapiMax(int);
+	void heapiMin(int);
 	void crearHeap(Lista*);
 
-	int getMax();
+	int getPriority();
 
 	int getPadre(int);
 	int getHijoDerecho(int);
