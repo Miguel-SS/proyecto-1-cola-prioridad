@@ -1,10 +1,12 @@
 #include "ColaPrioridad.h"
-
-ColaPrioridad::ColaPrioridad(){
+/**
+template <class T>
+ColaPrioridad<T>::ColaPrioridad(){
 	cola = new Heap();
 }
 
-ColaPrioridad::ColaPrioridad(ColaPrioridad* nueva){
+template <class T>
+ColaPrioridad<T>::ColaPrioridad(ColaPrioridad<T>* nueva){
 
 	cola = new Heap();
 
@@ -17,30 +19,35 @@ ColaPrioridad::ColaPrioridad(ColaPrioridad* nueva){
 
 }
 
-ColaPrioridad::ColaPrioridad(Lista* lista){
+template <class T>
+ColaPrioridad<T>::ColaPrioridad(Lista<T>* lista){
 
 	cola = new Heap();
 	cola->crearHeap(lista);
 }
 
-void ColaPrioridad::Agregar(int i){
+template <class T>
+void ColaPrioridad<T>::Agregar(T* i){
 
 	cola->insertar(i);
 
 }
 
-void ColaPrioridad::ExtraerMax(){
+template <class T>
+void ColaPrioridad<T>::ExtraerMax(){
 
 	cola->eliminar(getPriority());
 	
 }
 
-bool ColaPrioridad::Compara(int objA, int objB){
+template <class T>
+bool ColaPrioridad<T>::Compara(T* objA, T* objB){
 
 	return(objA > objB) ? true : false;
 }
 
-int ColaPrioridad::getPriority()
+template <class T>
+T* ColaPrioridad<T>::getPriority()
 {
 	if (cola->getTam() > 0) {
 		return cola->getPriority();
@@ -48,7 +55,9 @@ int ColaPrioridad::getPriority()
 	return -1;
 }
 
-int ColaPrioridad::getTam(){
+template <class T>
+int ColaPrioridad<T>::getTam(){
 
 	return cola->getTam();
 }
+/**/

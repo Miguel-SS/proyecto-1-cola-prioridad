@@ -1,27 +1,86 @@
 #pragma once
-#include "Lista.h"
 #include "Heap.h"
 
-
+template <class T>
 class ColaPrioridad{
 
 private:
 
-	Heap* cola;
+	Heap<T>* cola;
 
 public:
 
-	ColaPrioridad();                   
-	ColaPrioridad(ColaPrioridad*);     
-	ColaPrioridad(Lista*);            
-	void Agregar(int);
+	ColaPrioridad();
+	ColaPrioridad(ColaPrioridad<T>*);
+	ColaPrioridad(Lista<T>*);
+	void Agregar(T*);
 	void ExtraerMax();
-	bool Compara(int objA, int objB);
+	bool Compara(T* objA, T* objB);
 
-	int getPriority();
+	T* getPriority();
 	int getTam();
 
 	std::string toString() { return cola->toString(); }
-
-
+	
 };
+
+template <class T>
+ColaPrioridad<T>::ColaPrioridad() {
+	cola = new Heap<T>();
+}
+
+template <class T>
+ColaPrioridad<T>::ColaPrioridad(ColaPrioridad<T>* nueva) {
+
+	cola = new Heap<T>();
+
+
+	if (getPriority() != NULL) {
+
+		cola->crearHeap(nueva->cola->getLista());
+
+	}
+
+}
+
+template <class T>
+ColaPrioridad<T>::ColaPrioridad(Lista<T>* lista) {
+
+	cola = new Heap<T>();
+	cola->crearHeap(lista);
+}
+
+template <class T>
+void ColaPrioridad<T>::Agregar(T* i) {
+
+	cola->insertar(i);
+
+}
+
+template <class T>
+void ColaPrioridad<T>::ExtraerMax() {
+
+	cola->eliminar(getPriority());
+
+}
+
+template <class T>
+bool ColaPrioridad<T>::Compara(T* objA, T* objB) {
+
+	return(objA > objB) ? true : false;
+}
+
+template <class T>
+T* ColaPrioridad<T>::getPriority()
+{
+	if (cola->getTam() > 0) {
+		return cola->getPriority();
+	}
+	return nullptr;
+}
+
+template <class T>
+int ColaPrioridad<T>::getTam() {
+
+	return cola->getTam();
+}

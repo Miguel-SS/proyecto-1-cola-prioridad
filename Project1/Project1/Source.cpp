@@ -1,28 +1,36 @@
-#include "Heap.h"
 #include"ColaPrioridad.h"
 #include "Persona.h"
 
 int main() {
 	/**/
-	Lista* list = new Lista();
-	list->insertarFinal(44);
-	list->insertarFinal(26);
-	list->insertarFinal(73);
-	list->insertarFinal(10);
-	list->insertarFinal(21);
-	list->insertarFinal(72);
-	list->insertarFinal(58);
-	list->insertarFinal(99);
+	Persona* p1 = new Persona("Andres", 1, 23);
+	Persona* p2 = new Persona("Francisco", 2, 46);
+	Persona* p3 = new Persona("Juan", 3, 34);
+	Persona* p4 = new Persona("Ana", 4, 54);
+	Persona* p5 = new Persona("Maria", 5, 12);
+	Persona* p6 = new Persona("Luis", 6, 43);
+	Persona* p7 = new Persona("Sandra", 7, 5);
+	Persona* p8 = new Persona("Jose", 8, 2);
+	/**/
+	/**/
+	Lista<Persona>* list = new Lista<Persona>();
+	list->insertarFinal(p1);
+	list->insertarFinal(p2);
+	list->insertarFinal(p3);
+	list->insertarFinal(p4);
+	list->insertarFinal(p5);
+	list->insertarFinal(p6);
+	list->insertarFinal(p7);
+	list->insertarFinal(p8);
 
 	std::cout << "Info Lista normal" << std::endl;
 	
 	std::cout << list->toString() << std::endl;
 
+	
+
 	/**/
 
-	/*list.intercambiaNodos(0, 7);
-
-	std::cout << list.toString() << std::endl;*/
 	/**
 	Heap h;
 	h.crearHeap(list);
@@ -53,8 +61,8 @@ int main() {
 	/**/
 
 
-	
-	ColaPrioridad* c = new ColaPrioridad(list);
+	/**/
+	ColaPrioridad<Persona>* c = new ColaPrioridad<Persona>(list);
 
 	std::cout <<"Info Cola C" << std::endl;
 
@@ -62,16 +70,16 @@ int main() {
 
 
 
-	ColaPrioridad* a = new ColaPrioridad(c);
+	ColaPrioridad<Persona>* a = new ColaPrioridad<Persona>(c);
 
 	std::cout << "Info Cola A" << std::endl;
 
 	std::cout << a->toString() << std::endl;
+	/**/
 
 
 
-
-/*
+	/*
 	c->Agregar(20);
 	c->Agregar(3);
 	c->Agregar(89);
@@ -92,15 +100,15 @@ int main() {
 	*/
 
 	/**
-	Heap* h = new Heap(2);
-	h->insertar(44);
-	h->insertar(26);
-	h->insertar(73);
-	h->insertar(10);
-	h->insertar(21);
-	h->insertar(72);
-	h->insertar(58);
-	h->insertar(99);
+	Heap<Persona>* h = new Heap<Persona>();
+	h->insertar(p1);
+	h->insertar(p2);
+	h->insertar(p3);
+	h->insertar(p4);
+	h->insertar(p5);
+	h->insertar(p6);
+	h->insertar(p7);
+	h->insertar(p8);
 
 	std::cout << h->toString() << std::endl;
 
@@ -108,7 +116,7 @@ int main() {
 	/**/
 
 
-
+	delete list;
 
 	return 0;
 }

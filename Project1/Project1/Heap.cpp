@@ -1,39 +1,47 @@
-#include "Heap.h"
-
-Heap::Heap(int t){
+//#include "Heap.h"
+/**
+template <class T>
+Heap<T>::Heap(int t){
 	list = new Lista();
     tipo = t;
 }
 
-Heap::Heap(Heap* nuevo){
+template <class T>
+Heap<T>::Heap(Heap<T>* nuevo){
 
 
 
 }
 
-Heap::Heap(Lista* l2){
+template <class T>
+Heap<T>::Heap(Lista<T>* l2){
 
     crearHeap(l2);
 }
 
-Heap::~Heap(){}
+template <class T>
+Heap<T>::~Heap(){}
 
-void Heap::insertar(int n){
+template <class T>
+void Heap<T>::insertar(T* n){
 	list->insertarFinal(n);
     heapify(list->getTam()-1);
 }
 
-void Heap::eliminar(int n){
+template <class T>
+void Heap<T>::eliminar(T* n){
     int i = list->eliminar(n) * 2 + 1;
 	heapify(i);
     heapify(list->getTam()-1);
 }
 
-void Heap::heapify(int pos) {
+template <class T>
+void Heap<T>::heapify(int pos) {
     (tipo == 0) ? heapiMax(pos) : heapiMin(pos);
 }
 
-void Heap::heapiMax(int pos)
+template <class T>
+void Heap<T>::heapiMax(int pos)
 {
     int max;
 
@@ -58,7 +66,8 @@ void Heap::heapiMax(int pos)
     }
 }
 
-void Heap::heapiMin(int pos)
+template <class T>
+void Heap<T>::heapiMin(int pos)
 {
     int min;
 
@@ -83,7 +92,8 @@ void Heap::heapiMin(int pos)
     }
 }
 
-void Heap::crearHeap(Lista *L2){
+template <class T>
+void Heap<T>::crearHeap(Lista<T> *L2){
     if (list->getInicio() != NULL) {
         list->borrarLista();
     }
@@ -96,33 +106,40 @@ void Heap::crearHeap(Lista *L2){
 
 }
 
-int Heap::getPriority()
+template <class T>
+T* Heap<T>::getPriority()
 {
     return list->getNodo(0)->value;
 }
 
-Lista* Heap::getLista()
+template <class T>
+Lista<T>* Heap<T>::getLista()
 {
     return list;
 }
 
-int Heap::getHijoIzquierdo(int pos) {
+template <class T>
+int Heap<T>::getHijoIzquierdo(int pos) {
     int izq = pos * 2 + 1;
     if (izq >= list->getTam())
         return -1;
     return izq;
 }
 
-int Heap::getPadre(int pos){
+template <class T>
+int Heap<T>::getPadre(int pos){
     if (pos < 0 || pos >= list->getTam())
         return -1;
     return (pos - 1) / 2;
 }
 
 // Retorna la posición del hijo derecho
-int Heap::getHijoDerecho(int pos) {
+template <class T>
+int Heap<T>::getHijoDerecho(int pos) {
     int der = pos * 2 + 2;
     if (der >= list->getTam())
         return -1;
     return der;
 }
+
+/**/

@@ -1,17 +1,25 @@
 #include "Lista.h"
+/**
+template<class T>
+Lista<T>::Lista()
+{
+	inicio = nullptr;
+	tam = 0;
+}
 
 // Constructor copia
-Lista::Lista(const Lista& obj)
+template <class T>
+Lista<T>::Lista(const Lista& obj)
 {
 	if (obj.inicio == nullptr) { inicio = nullptr; tam = 0; }
 	else {
 
 		// ????? se debe borrar algo?
-		inicio = new Nodo(obj.inicio->value);
+		inicio = new Nodo<T>(obj.inicio->value);
 		iterador tmp = inicio;
 		iterador tmp_obj = obj.inicio->next;
 		while (tmp_obj != nullptr) {
-			tmp->next = new Nodo(tmp_obj->value, tmp);
+			tmp->next = new Nodo<T>(tmp_obj->value, tmp);
 			tmp = tmp->next;
 			tmp_obj = tmp_obj->next;
 		}
@@ -19,10 +27,17 @@ Lista::Lista(const Lista& obj)
 	}
 }
 
-// Inserta un elemento n al final de la lista
-void Lista::insertarFinal(int n)
+template<class T>
+Lista<T>::~Lista()
 {
-	Nodo* nuevo = new Nodo(n);
+	borrarLista();
+}
+
+// Inserta un elemento n al final de la lista
+template <class T>
+void Lista<T>::insertarFinal(T* n)
+{
+	Nodo<T>* nuevo = new Nodo<T>(n);
 	if (isVacia()) inicio = nuevo;
 	else {
 		iterador tmp = inicio;
@@ -34,8 +49,10 @@ void Lista::insertarFinal(int n)
 	tam++;
 }
 
-// Elimina un elemento n de la lista (cualquier posición)
-int Lista::eliminar(int n)
+// Elimina un elemento n de la lista (cualquier posición) 
+// Retorna la posicion
+template <class T>
+int Lista<T>::eliminar(T* n)
 {
 	if (!isVacia()) {
 		int i = 0;
@@ -66,10 +83,11 @@ int Lista::eliminar(int n)
 	return -1;
 }
 
-void Lista::eliminarPrimero()
+template <class T>
+void Lista<T>::eliminarPrimero()
 {
 	if (!isVacia()) {
-		Nodo* aux = inicio;
+		Nodo<T>* aux = inicio;
 		inicio = inicio->next;
 		delete aux;
 		tam--;
@@ -77,18 +95,21 @@ void Lista::eliminarPrimero()
 }
 
 // Borra todos los nodos de la lista
-void Lista::borrarLista() { while (!isVacia()) { eliminarPrimero(); } }
+template <class T>
+void Lista<T>::borrarLista() { while (!isVacia()) { eliminarPrimero(); } }
 
 // Verifica si la lista está vacia
-bool Lista::isVacia() { return (inicio != nullptr) ? false : true; }
+template <class T>
+bool Lista<T>::isVacia() { return (inicio != nullptr) ? false : true; }
 
-void Lista::intercambiaNodos(int pos1, int pos2)
+template <class T>
+void Lista<T>::intercambiaNodos(int pos1, int pos2)
 {
 	if (pos1 < tam && pos2 < tam) {
 		if (pos1 != pos2) {
-			Nodo* nodo1;
-			Nodo* nodo2;
-			Nodo* aux = nullptr;
+			Nodo<T>* nodo1;
+			Nodo<T>* nodo2;
+			Nodo<T>* aux = nullptr;
 			if (pos1 < pos2) {
 				nodo1 = getNodo(pos1);
 				nodo2 = getNodo(pos2);
@@ -106,7 +127,7 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 				aux = nodo2->next;
 				nodo2->next = nodo1;
 				nodo1->next = aux;
-				if (aux) aux->prev = nodo1; // Esta línea no estaba, me dio muchos problemas y siento que podría pasar lo mismo abajo
+				if (aux) aux->prev = nodo1; 
 				if(inicio == nodo1) inicio = nodo2;
 			}
 			else {
@@ -119,15 +140,16 @@ void Lista::intercambiaNodos(int pos1, int pos2)
 				nodo2->prev = aux;
 				aux = nodo1->next;
 				nodo1->next = nodo2->next;
-				nodo2->next = aux; // ************************** AQUÍ ********************************
-				// Iría aquí pero por el momento no me ha dado problemas por lo que no lo agrego pero por si está pariendo con eso
+				nodo2->next = aux; 
+				// if (aux) aux->prev = nodo2;
 				if (inicio == nodo1) inicio = nodo2;
 			}
 		}
 	}
 }
 
-int Lista::getValores(int x)
+template <class T>
+T* Lista<T>::getValores(int x)
 {
 	if (this->getInicio()->value == NULL) {
 		return NULL;
@@ -135,7 +157,8 @@ int Lista::getValores(int x)
 	return this->getNodo(x)->value;
 }
 
-Lista::Nodo* Lista::getNodo(int pos)
+template <class T>
+Lista<T>::Nodo<T>* Lista<T>::getNodo(int pos)
 {
 	if (pos <= tam) {
 		iterador it = inicio;
@@ -149,12 +172,15 @@ Lista::Nodo* Lista::getNodo(int pos)
 	return nullptr;
 }
 
-Lista::Nodo* Lista::getInicio() { return inicio; }
+template <class T>
+Lista<T>::Nodo<T>* Lista<T>::getInicio() { return inicio; }
 
-int Lista::getTam() { return tam; }
+template <class T>
+int Lista<T>::getTam() { return tam; }
 
 // Devuelve los datos en forma de cadena
-std::string Lista::toString()
+template <class T>
+std::string Lista<T>::toString()
 {
 	std::stringstream s;
 	if (!isVacia()) {
