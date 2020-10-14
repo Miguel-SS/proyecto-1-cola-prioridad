@@ -8,6 +8,8 @@ private:
 	 int tipo;
 public:
 	Heap(int=0);
+	Heap(Heap*);
+	Heap(Lista*);
 	~Heap();
 	void insertar(int);
 	void eliminar(int);
@@ -17,6 +19,8 @@ public:
 	void crearHeap(Lista*);
 
 	int getPriority();
+
+	Lista* getLista();
 
 	int getPadre(int);
 	int getHijoDerecho(int);

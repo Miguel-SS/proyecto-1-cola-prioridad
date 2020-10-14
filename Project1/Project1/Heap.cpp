@@ -5,6 +5,17 @@ Heap::Heap(int t){
     tipo = t;
 }
 
+Heap::Heap(Heap* nuevo){
+
+
+
+}
+
+Heap::Heap(Lista* l2){
+
+    crearHeap(l2);
+}
+
 Heap::~Heap(){}
 
 void Heap::insertar(int n){
@@ -88,6 +99,11 @@ void Heap::crearHeap(Lista *L2){
 int Heap::getPriority()
 {
     return list->getNodo(0)->value;
+}
+
+Lista* Heap::getLista()
+{
+    return list;
 }
 
 int Heap::getHijoIzquierdo(int pos) {
