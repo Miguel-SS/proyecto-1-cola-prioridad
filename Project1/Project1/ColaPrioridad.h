@@ -8,7 +8,6 @@ class ColaPrioridad{
 private:
 
 	Heap* cola;
-	int tam;
 
 public:
 

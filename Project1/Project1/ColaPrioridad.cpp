@@ -2,7 +2,6 @@
 
 ColaPrioridad::ColaPrioridad(){
 	cola = new Heap();
-	tam = cola->getTam();
 }
 
 ColaPrioridad::ColaPrioridad(ColaPrioridad* nueva){
@@ -10,20 +9,18 @@ ColaPrioridad::ColaPrioridad(ColaPrioridad* nueva){
 	cola = new Heap();
 
 
-	if (nueva->cola->getMax() != NULL) {
+	if (getPriority() != NULL) {
 
 		cola->crearHeap(nueva->cola->getLista());
 
 	}
 
-	tam = cola->getTam();
 }
 
 ColaPrioridad::ColaPrioridad(Lista* lista){
 
 	cola = new Heap();
 	cola->crearHeap(lista);
-	tam = cola->getTam();
 }
 
 void ColaPrioridad::Agregar(int i){

@@ -3,7 +3,7 @@
 #include "Persona.h"
 
 int main() {
-	/**
+	/**/
 	Lista* list = new Lista();
 	list->insertarFinal(44);
 	list->insertarFinal(26);
