@@ -12,7 +12,58 @@ int main() {
 	Persona* p7 = new Persona("Sandra", 7, 5);
 	Persona* p8 = new Persona("Jose", 8, 2);
 	/**/
+
+	/**
+	if (*p1 < *p2) {
+		std::cout << p2->getNombre() << " es mayor" << std::endl;
+	}
+	else {
+		std::cout << p1->getNombre() << " es mayor" << std::endl;
+	}
+
+	if (*p2 < *p3) {
+		std::cout << p3->getNombre() << " es mayor" << std::endl;
+	}
+	else {
+		std::cout << p2->getNombre() << " es mayor" << std::endl;
+	}
+
+	if (*p1 > *p2) {
+		std::cout << p1->getNombre() << " es mayor" << std::endl;
+	}
+	else {
+		std::cout << p2->getNombre() << " es mayor" << std::endl;
+	}
+
+	if (*p2 == *p9) {
+		std::cout << "Son iguales" << std::endl;
+	}
+	if (*p2 == *p8) {
+		std::cout << "Son iguales" << std::endl;
+	}
+	if (*p4 == *p6) {
+		std::cout << "Son iguales" << std::endl;
+	}
+
+	std::cout << *p1 << std::endl;
+	std::cout << *p2 << std::endl;
+	std::cout << *p3 << std::endl;
+	std::cout << *p4 << std::endl << std::endl;
+
+	*p3 = *p4;
+	std::cout << *p3 << std::endl;
+	std::cout << *p4 << std::endl;
+
+	delete p1;
+	delete p2;
+	delete p3;
+	delete p4;
+	delete p5;
+	delete p6;
+	delete p7;
+	delete p8;
 	/**/
+	/**
 	Lista<Persona>* list = new Lista<Persona>();
 	list->insertarFinal(p1);
 	list->insertarFinal(p2);
@@ -61,7 +112,7 @@ int main() {
 	/**/
 
 
-	/**/
+	/**
 	ColaPrioridad<Persona>* c = new ColaPrioridad<Persona>(list);
 
 	std::cout <<"Info Cola C" << std::endl;
@@ -99,7 +150,7 @@ int main() {
 	std::cout << c->toString() << std::endl;
 	*/
 
-	/**
+	/**/
 	Heap<Persona>* h = new Heap<Persona>();
 	h->insertar(p1);
 	h->insertar(p2);
@@ -116,7 +167,7 @@ int main() {
 	/**/
 
 
-	delete list;
+	//delete list;
 
 	return 0;
 }

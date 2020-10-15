@@ -241,28 +241,3 @@ std::string Lista<T>::toString()
 	}
 	return s.str();
 }
-
-/*Lista* Lista::operator=(Lista* nuevo)
-{
-
-	if (this != nuevo) {
-
-		borrarLista();
-
-		inicio = nuevo->inicio;
-
-		while (nuevo->inicio->next->next == NULL) {
-
-			inicio->prev = nuevo->inicio->prev;
-			inicio->next = nuevo->inicio->next;
-
-
-			inicio = inicio->next;
-			nuevo->inicio = nuevo->inicio->next;
-		}
-
-	}
-	return this;
-
-
-}*/

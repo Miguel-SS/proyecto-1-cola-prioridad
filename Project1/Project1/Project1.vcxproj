@@ -145,9 +145,6 @@
     <ClInclude Include="Persona.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ColaPrioridad.cpp" />
-    <ClCompile Include="Heap.cpp" />
-    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>

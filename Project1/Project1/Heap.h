@@ -84,11 +84,11 @@ void Heap<T>::heapiMax(int pos)
     int der = getHijoDerecho(padre);
 
     // Calculamos el elemento máximo para la posición
-    if (izq != -1 && list->getNodo(izq)->value > list->getNodo(padre)->value)
+    if (izq != -1 && *list->getNodo(izq)->value > *list->getNodo(padre)->value)
         max = izq;
     else
         max = padre;
-    if (der != -1 && list->getNodo(der)->value > list->getNodo(max)->value)
+    if (der != -1 && *list->getNodo(der)->value > *list->getNodo(max)->value)
         max = der;
 
     // Si el elemento mayor del heap es diferente al indicado
@@ -110,11 +110,11 @@ void Heap<T>::heapiMin(int pos)
     int der = getHijoDerecho(padre);
 
     // Calculamos el elemento minimo para la posición
-    if (izq != -1 && list->getNodo(izq)->value < list->getNodo(padre)->value)
+    if (izq != -1 && *list->getNodo(izq)->value < *list->getNodo(padre)->value)
         min = izq;
     else
         min = padre;
-    if (der != -1 && list->getNodo(der)->value < list->getNodo(min)->value)
+    if (der != -1 && *list->getNodo(der)->value < *list->getNodo(min)->value)
         min = der;
 
     // Si el elemento menor del heap es diferente al indicado
