@@ -94,19 +94,21 @@ void Heap<T>::heapiMax(int pos)
     int izq = getHijoIzquierdo(padre);
     int der = getHijoDerecho(padre);
 
-    // Calculamos el elemento máximo para la posición
-    if (izq != -1 && *list->getNodo(izq)->value > *list->getNodo(padre)->value)
-        max = izq;
-    else
-        max = padre;
-    if (der != -1 && *list->getNodo(der)->value > *list->getNodo(max)->value)
-        max = der;
+    if (padre != -1) {
+        // Calculamos el elemento máximo para la posición
+        if (izq != -1 && *list->getNodo(izq)->value > * list->getNodo(padre)->value)
+            max = izq;
+        else
+            max = padre;
+        if (der != -1 && *list->getNodo(der)->value > * list->getNodo(max)->value)
+            max = der;
 
-    // Si el elemento mayor del heap es diferente al indicado
-    // en la posición, intercambiamos
-    if (max != padre) {
-        list->intercambiaNodos(padre, max);
-        heapify(padre);
+        // Si el elemento mayor del heap es diferente al indicado
+        // en la posición, intercambiamos
+        if (max != padre) {
+            list->intercambiaNodos(padre, max);
+            heapify(padre);
+        }
     }
 }
 
@@ -120,19 +122,21 @@ void Heap<T>::heapiMin(int pos)
     int izq = getHijoIzquierdo(padre);
     int der = getHijoDerecho(padre);
 
-    // Calculamos el elemento minimo para la posición
-    if (izq != -1 && *list->getNodo(izq)->value < *list->getNodo(padre)->value)
-        min = izq;
-    else
-        min = padre;
-    if (der != -1 && *list->getNodo(der)->value < *list->getNodo(min)->value)
-        min = der;
+    if (padre != -1) {
+        // Calculamos el elemento minimo para la posición
+        if (izq != -1 && *list->getNodo(izq)->value < *list->getNodo(padre)->value)
+            min = izq;
+        else
+            min = padre;
+        if (der != -1 && *list->getNodo(der)->value < *list->getNodo(min)->value)
+            min = der;
 
-    // Si el elemento menor del heap es diferente al indicado
-    // en la posición, intercambiamos
-    if (min != padre) {
-        list->intercambiaNodos(padre, min);
-        heapify(padre);
+        // Si el elemento menor del heap es diferente al indicado
+        // en la posición, intercambiamos
+        if (min != padre) {
+            list->intercambiaNodos(padre, min);
+            heapify(padre);
+        }
     }
 }
 
