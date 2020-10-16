@@ -14,6 +14,7 @@ public:
 	~Heap();
 
     void vaciaLista();
+    int getTipo();
     void setTipo(int);
 	void insertar(T*);
 	void eliminar(T*);
@@ -59,6 +60,12 @@ template<class T>
 inline void Heap<T>::vaciaLista(){
 
     list->borrarLista();
+}
+
+template<class T>
+inline int Heap<T>::getTipo(){
+
+    return tipo;
 }
 
 template<class T>
@@ -151,7 +158,6 @@ void Heap<T>::crearHeap(Lista<T>* L2) {
         insertar(L2->getValores(x));
         x++;
     }
-
 }
 
 template <class T>

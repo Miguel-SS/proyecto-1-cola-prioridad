@@ -15,6 +15,7 @@ public:
 	ColaPrioridad(Lista<T>*);
 
 	void BorrarDatos();
+	int getTipo();
 	void CambiaTipo(int);
 	void Agregar(T*);
 	void ExtraerMax();
@@ -57,6 +58,12 @@ template<class T>
 inline void ColaPrioridad<T>::BorrarDatos(){
 
 	cola->vaciaLista();
+}
+
+template<class T>
+inline int ColaPrioridad<T>::getTipo(){
+
+	return cola->getTipo();
 }
 
 template<class T>

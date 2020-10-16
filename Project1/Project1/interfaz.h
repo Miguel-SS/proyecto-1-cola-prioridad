@@ -19,6 +19,7 @@ public:
 	void inizializar();
 	void trabajarMaximos();
 	void trabajarMinimos();
+	void creaHeap();
 
 };
 
@@ -47,7 +48,9 @@ inline void interfaz<T>::inizializar(){
 	imprimeCadena("||                - COLA DE PRIORIDAD -             ||\n");
 	imprimeCadena("||                                                  ||\n");
 	imprimeCadena("||            FECHA DE ENTREGA: 15/10/2020          ||\n");
-	imprimeCadena("||__________________________________________________||\n");
+	imprimeCadena("||__________________________________________________||\n\n\n\n\n");
+
+	imprimeCadena("                    PRESIONE ENTER PARA SEGUIR....\n");
 
 	esperandoEnter();
 	limpiaPantalla();
@@ -70,7 +73,9 @@ inline void interfaz<T>::inizializar(){
 		imprimeCadena("|____________________________________________________|\n\n");
 
 		imprimeCadena("DIGITE SU OPCION: \n");
+
 		opc = leerEntero();
+
 		switch (opc)
 		{
 		case 1:
@@ -87,6 +92,7 @@ inline void interfaz<T>::inizializar(){
 			imprimeCadena("          Digito una opcion no valida!\n");
 			break;
 		}
+		limpiaPantalla();
 	} while (opc != 0);
 	
 }
@@ -120,6 +126,8 @@ inline void interfaz<T>::trabajarMaximos(){
 		imprimeCadena("|                                                    |\n");
 		imprimeCadena("|               3. VER COLA PRIORIDAD                |\n");
 		imprimeCadena("|                                                    |\n");
+		imprimeCadena("|               4. CREA COLA APARTIR DE LISTA        |\n");
+		imprimeCadena("|                                                    |\n");
 		imprimeCadena("|               0. SALIR                             |\n");
 		imprimeCadena("|____________________________________________________|\n\n");
 
@@ -151,16 +159,29 @@ inline void interfaz<T>::trabajarMaximos(){
 			limpiaPantalla();
 
 			cola->ExtraerMax();
-			imprimeCadena("          SE HA EXTRAIDO EL OBJETO DE LA COLA!!!\n");
+			imprimeCadena("          SE HA EXTRAIDO EL OBJETO DE LA COLA!!!\n\n\n\n\n");
+
+
+			imprimeCadena("                    PRESIONE ENTER PARA SEGUIR....\n");
 
 			esperandoEnter();
 			break;
 
 
 		case 3:
-			limpiaPantalla(); ("cls");
+			limpiaPantalla();
 
 			imprimeCadena(cola->toString());
+
+			imprimeCadena("                    PRESIONE ENTER PARA SEGUIR....\n");
+
+			esperandoEnter();
+			break;
+
+		case 4:
+			limpiaPantalla();
+
+			creaHeap();
 
 			esperandoEnter();
 			break;
@@ -250,6 +271,14 @@ inline void interfaz<T>::trabajarMinimos() {
 			esperandoEnter();
 			break;
 
+		case 4:
+			limpiaPantalla();
+
+			creaHeap();
+
+			esperandoEnter();
+			break;
+
 		case 0:
 			break;
 		default:
@@ -258,6 +287,53 @@ inline void interfaz<T>::trabajarMinimos() {
 		}
 		limpiaPantalla();
 	} while (gestionC != 0);
-} 
+}
+template<class T>
+inline void interfaz<T>::creaHeap(){
+
+	cola->BorrarDatos();
+
+	int x;
+
+	Lista<Persona>* lp = new Lista<Persona>();
+
+	limpiaPantalla();
+	imprimeCadena(" CUANTAS PERSONAS DESEA INGRESAR? \n\n");
+	x = leerEntero();
+
+	for (int i= 0; i < x;i++) {
+
+		string nombre;
+		int edad, id;
+		Persona* objeto = new Persona();
+
+		imprimeCadena(" INGRESA SU NOMBRE: \n");
+		nombre = leerCadena();
+		imprimeCadena(" INGRESAR SU IDENTIFIACION: \n");
+		id = leerEntero();
+		imprimeCadena(" INGRESAR SU EDAD: \n");
+		edad = leerEntero();
+
+		objeto->setNombre(nombre);
+		objeto->setId(id);
+		objeto->setEdad(edad);
+
+		lp->insertarFinal(objeto);
+		limpiaPantalla();
+
+	}
+
+	cola = new ColaPrioridad<Persona>(lp);
+
+	limpiaPantalla();
+	imprimeCadena(cola->toString());
+
+
+	imprimeCadena("                    PRESIONE ENTER PARA SEGUIR....\n");
+
+	cola->BorrarDatos();
+
+}
+
 
 
