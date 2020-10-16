@@ -10,9 +10,9 @@ private:
 
 public:
 
-	ColaPrioridad();
+	ColaPrioridad(int=0);
 	ColaPrioridad(ColaPrioridad<T>*);
-	ColaPrioridad(Lista<T>*);
+	ColaPrioridad(Lista<T>*, int=0);
 
 	void BorrarDatos();
 	int getTipo();
@@ -29,8 +29,8 @@ public:
 };
 
 template <class T>
-ColaPrioridad<T>::ColaPrioridad() {
-	cola = new Heap<T>();
+ColaPrioridad<T>::ColaPrioridad(int t) {
+	cola = new Heap<T>(t);
 }
 
 template <class T>
@@ -48,10 +48,10 @@ ColaPrioridad<T>::ColaPrioridad(ColaPrioridad<T>* nueva) {
 }
 
 template <class T>
-ColaPrioridad<T>::ColaPrioridad(Lista<T>* lista) {
+ColaPrioridad<T>::ColaPrioridad(Lista<T>* lista, int t) {
 
-	cola = new Heap<T>();
-	cola->crearHeap(lista);
+	cola = new Heap<T>(lista, t);
+	//cola->crearHeap(lista);
 }
 
 template<class T>

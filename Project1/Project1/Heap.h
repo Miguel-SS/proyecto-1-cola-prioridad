@@ -8,9 +8,9 @@ private:
 	Lista<T> *list;
 	int tipo;
 public:
-	Heap();
+	Heap(int=0);
 	Heap(Heap<T>*);
-	Heap(Lista<T>*);
+	Heap(Lista<T>*, int=0);
 	~Heap();
 
     void vaciaLista();
@@ -38,8 +38,9 @@ public:
 // ************ Definicion ******************
 
 template <class T>
-Heap<T>::Heap() {
+Heap<T>::Heap(int t) {
     list = new Lista<T>();
+    tipo = t;
 }
 
 template <class T>
@@ -48,8 +49,9 @@ Heap<T>::Heap(Heap<T>* nuevo) {
 }
 
 template <class T>
-Heap<T>::Heap(Lista<T>* l2) {
-
+Heap<T>::Heap(Lista<T>* l2, int t) {
+    list = new Lista<T>();
+    tipo = t;
     crearHeap(l2);
 }
 

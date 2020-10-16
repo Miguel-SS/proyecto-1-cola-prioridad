@@ -19,7 +19,7 @@ public:
 	void inizializar();
 	void trabajarMaximos();
 	void trabajarMinimos();
-	void creaHeap();
+	void creaHeap(int);
 
 };
 
@@ -181,7 +181,7 @@ inline void interfaz<T>::trabajarMaximos(){
 		case 4:
 			limpiaPantalla();
 
-			creaHeap();
+			creaHeap(0);
 
 			esperandoEnter();
 			break;
@@ -225,6 +225,8 @@ inline void interfaz<T>::trabajarMinimos() {
 		imprimeCadena("|               2. ELIMINAR DE COLA                  |\n");
 		imprimeCadena("|                                                    |\n");
 		imprimeCadena("|               3. VER COLA PRIORIDAD                |\n");
+		imprimeCadena("|                                                    |\n");
+		imprimeCadena("|               4. CREA COLA APARTIR DE LISTA        |\n");
 		imprimeCadena("|                                                    |\n");
 		imprimeCadena("|               0. SALIR                             |\n");
 		imprimeCadena("|____________________________________________________|\n\n");
@@ -274,7 +276,7 @@ inline void interfaz<T>::trabajarMinimos() {
 		case 4:
 			limpiaPantalla();
 
-			creaHeap();
+			creaHeap(1);
 
 			esperandoEnter();
 			break;
@@ -289,7 +291,7 @@ inline void interfaz<T>::trabajarMinimos() {
 	} while (gestionC != 0);
 }
 template<class T>
-inline void interfaz<T>::creaHeap(){
+inline void interfaz<T>::creaHeap(int tipo){
 
 	cola->BorrarDatos();
 
@@ -322,8 +324,9 @@ inline void interfaz<T>::creaHeap(){
 		limpiaPantalla();
 
 	}
-
-	cola = new ColaPrioridad<Persona>(lp);
+	
+	delete cola;
+	cola = new ColaPrioridad<Persona>(lp, tipo);
 
 	limpiaPantalla();
 	imprimeCadena(cola->toString());
