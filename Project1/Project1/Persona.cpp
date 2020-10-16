@@ -21,9 +21,10 @@ void Persona::setEdad(int e) { edad = e; }
 string Persona::toString() {
 
 	stringstream s;
-	s << "Identificacion: " << id << endl;
-	s << "Nombre: " << nombre << endl;
-	s << "Edad: " << edad << endl;
+	s << "|      Identificacion: " << id << endl;
+	s << "|      Nombre: " << nombre << endl;
+	s << "|      Edad: " << edad << endl;
+	s << "|__________________________" << endl << endl;
 	return s.str();
 }
 

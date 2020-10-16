@@ -8,10 +8,13 @@ private:
 	Lista<T> *list;
 	int tipo;
 public:
-	Heap(int=0);
+	Heap();
 	Heap(Heap<T>*);
 	Heap(Lista<T>*);
 	~Heap();
+
+    void vaciaLista();
+    void setTipo(int);
 	void insertar(T*);
 	void eliminar(T*);
 	void heapify(int);
@@ -34,15 +37,12 @@ public:
 // ************ Definicion ******************
 
 template <class T>
-Heap<T>::Heap(int t) {
+Heap<T>::Heap() {
     list = new Lista<T>();
-    tipo = t;
 }
 
 template <class T>
 Heap<T>::Heap(Heap<T>* nuevo) {
-
-
 
 }
 
@@ -54,6 +54,17 @@ Heap<T>::Heap(Lista<T>* l2) {
 
 template <class T>
 Heap<T>::~Heap() {}
+
+template<class T>
+inline void Heap<T>::vaciaLista(){
+
+    list->borrarLista();
+}
+
+template<class T>
+inline void Heap<T>::setTipo(int x){
+    tipo = x;
+}
 
 template <class T>
 void Heap<T>::insertar(T* n) {

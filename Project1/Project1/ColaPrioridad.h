@@ -13,6 +13,9 @@ public:
 	ColaPrioridad();
 	ColaPrioridad(ColaPrioridad<T>*);
 	ColaPrioridad(Lista<T>*);
+
+	void BorrarDatos();
+	void CambiaTipo(int);
 	void Agregar(T*);
 	void ExtraerMax();
 	bool Compara(T* objA, T* objB);
@@ -48,6 +51,18 @@ ColaPrioridad<T>::ColaPrioridad(Lista<T>* lista) {
 
 	cola = new Heap<T>();
 	cola->crearHeap(lista);
+}
+
+template<class T>
+inline void ColaPrioridad<T>::BorrarDatos(){
+
+	cola->vaciaLista();
+}
+
+template<class T>
+inline void ColaPrioridad<T>::CambiaTipo(int x){
+
+	cola->setTipo(x);
 }
 
 template <class T>

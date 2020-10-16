@@ -1,8 +1,16 @@
 #include"ColaPrioridad.h"
 #include "Persona.h"
+#include "interfaz.h"
 
 int main() {
-	/**/
+
+	interfaz<Persona>* i = new interfaz<Persona>();
+	i->inizializar();
+
+
+
+	system("pause");
+	/*
 	Persona* p1 = new Persona("Andres", 1, 23);
 	Persona* p2 = new Persona("Francisco", 2, 46);
 	Persona* p3 = new Persona("Juan", 3, 34);
@@ -150,7 +158,7 @@ int main() {
 	std::cout << c->toString() << std::endl;
 	*/
 
-	/**/
+	/*
 	Heap<Persona>* h = new Heap<Persona>();
 	h->insertar(p1);
 	h->insertar(p2);

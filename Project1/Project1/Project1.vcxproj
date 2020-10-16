@@ -141,12 +141,15 @@
   <ItemGroup>
     <ClInclude Include="ColaPrioridad.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="interfaz.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="utiles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="utiles.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
